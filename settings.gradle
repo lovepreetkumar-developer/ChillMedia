@@ -1,0 +1,4 @@
+include ':masterexoplyaer'
+include ':sidemenu'
+include ':app'
+rootProject.name = "GithubExamples"

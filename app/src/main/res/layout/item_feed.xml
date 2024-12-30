@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.techwin.githubexamples.data.network.responses.GalleryModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@drawable/bg_gradient_green_circle_final"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/image_circle" />
+
+            <!--app:circle_image="@{model.images.get(0).link}"-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/CustomTextViewRegular"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/imgProfile"
+                android:text="@{model.account_url}"
+                android:textSize="@dimen/_10sdp"
+                tools:text="username" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgMenu"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:padding="@dimen/_9sdp"
+                android:src="@drawable/ic_feed_options" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgMedia"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_330sdp"
+            android:src="@drawable/image_sample"
+            android:visibility="gone"
+            app:feedImage="@{model}" />
+
+        <com.master.exoplayer.MasterExoPlayer
+            android:id="@+id/masterExoPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_330sdp"
+            android:visibility="gone"
+            app:feedVideo="@{model}" />
+
+        <!--
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_330sdp">
+
+                    <com.master.exoplayer.MasterExoPlayer
+                        android:id="@+id/masterExoPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:feedVideo="@{model}" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgVolume"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="@dimen/_15sdp"
+                        android:background="@drawable/bg_circle_volume_back"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_volume_off"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+        -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageLike"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_like_un_filled" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageComment"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_toEndOf="@+id/imageLike"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_comment_un_filled" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageShare"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_toEndOf="@+id/imageComment"
+                android:padding="@dimen/_8sdp"
+                android:src="@drawable/ic_share_un_filled" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/CustomTextViewRegular"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:text='@{model.points+" Points"}'
+                android:textSize="@dimen/_10sdp"
+                tools:text="987 points" />
+
+            <RelativeLayout
+                android:id="@+id/rlComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_toStartOf="@+id/rlLikes"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgComment"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_like_filled"
+                    android:tint="@color/color_red" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/CustomTextViewRegular"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/imgComment"
+                    android:text="678"
+                    android:textSize="@dimen/_11sdp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgHeart"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_comment_filled"
+                    android:tint="@color/gray_dark" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/CustomTextViewRegular"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_toEndOf="@+id/imgHeart"
+                    android:text="94.3k"
+                    android:textSize="@dimen/_11sdp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/CustomTextViewRegular"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/_10sdp"
+            app:addSeeMoreText="@{model}"
+            tools:text="Calling all Singers, Dancers, Musicians. Get registered with yoCalling all Singers, Dancers, Musici Singers, Dancers, Musicians. Get registered with yoCalling all Singers, Dancers, Musicians. Get registered with yoCalling all Singers, Dancers, Musicians. Get registered with you valid id proof and data" />
+
+        <!--
+            android:text="@{model.description}"-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/CustomTextViewRegular"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:text="View 2 Comments"
+            android:textColor="@color/gray_light"
+            android:textSize="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+</layout>

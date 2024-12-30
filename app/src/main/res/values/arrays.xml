@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ld_activityScreenTitles">
+        <item>Feedback</item>
+        <item>Share App</item>
+        <item>Appreciate</item>
+        <item>Settings</item>
+        <item/>
+        <item>Version 1.1</item>
+    </string-array>
+
+    <array name="ld_activityScreenIcons">
+        <item>@drawable/ic_feedback</item>
+        <item>@drawable/ic_share_app</item>
+        <item>@drawable/ic_rate</item>
+        <item>@drawable/ic_settings</item>
+        <item>@drawable/ic_settings</item>
+        <item>@drawable/ic_version</item>
+    </array>
+
+</resources>
